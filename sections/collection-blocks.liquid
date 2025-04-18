@@ -1,0 +1,90 @@
+<section class="collection-blocks">
+  <div class="collection-blocks__container">
+    {% for block in section.blocks %}
+      <div class="collection-blocks__item">
+        <img
+          src="{{ block.settings.block_image | img_url: 'medium' }}"
+          alt="{{ block.settings.content_heading }}"
+          class="collection-blocks__image"
+        >
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Blocks",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image_desktop",
+          "label": "Block image - Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image_mobile",
+          "label": "Block image - Mobile"
+        },
+        {
+          "type": "text",
+          "id": "content_heading",
+          "label": "Content heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content_text",
+          "label": "Content text"
+        },
+        {
+          "type": "url",
+          "id": "content_link_1",
+          "label": "Content CTA 1"
+        },
+
+        {
+          "type": "text",
+          "id": "content_link_text",
+          "label": "Content CTA 1 text"
+        },
+        {
+          "type": "url",
+          "id": "content_link_2",
+          "label": "Content CTA 2"
+        },
+        {
+          "type": "text",
+          "id": "content_link_text_2",
+          "label": "Content CTA 2 text"
+        },
+        {
+          "type": "url",
+          "id": "content_link_3",
+          "label": "Content CTA 3"
+        },
+        {
+          "type": "text",
+          "id": "content_link_text_3",
+          "label": "Content CTA 3 text"
+        },
+        {
+          "type": "url",
+          "id": "content_link_4",
+          "label": "Content CTA 4"
+        },
+        {
+          "type": "text",
+          "id": "content_link_text_4",
+          "label": "Content CTA 4 text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

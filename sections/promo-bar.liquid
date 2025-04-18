@@ -1,0 +1,58 @@
+{{ 'section-promo-bar.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .promo-bar__container {
+    color: {{ section.settings.text_color | default: '#ffffff' }};
+    background-color: {{ section.settings.background_color | default: '#005bc4' }};
+  }
+{% endstyle %}
+
+<section class="promo-bar">
+  <div class="promo-bar__container">
+    {% if section.settings.link != blank %}
+      <a
+        href="{{ section.settings.link | default: '#' }}"
+        class="promo-bar__link"
+      >
+    {% endif %}
+    {{ section.settings.message }}
+    {% if section.settings.link != blank %}
+      </a>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Promo bar",
+  "tag": "section",
+  "class": "promo-bar",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "Message"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Optional link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo bar"
+    }
+  ]
+}
+{% endschema %}

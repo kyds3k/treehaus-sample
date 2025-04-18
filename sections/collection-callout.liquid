@@ -1,0 +1,81 @@
+<section class="coll-callout">
+  <div class="coll-callout__container">
+    {% if section.settings.collection_image %}
+      <img
+        src="{{ section.settings.collection_image | img_url: 'large' }}"
+        alt="Collection image"
+        class="w-full h-auto coll-callout__image"
+      >
+    {% endif %}
+    {% if content_block %}
+      <div class="coll-callout__content">
+        {% assign content_block = section.blocks.first %}
+
+        <h2 class="text-2xl font-bold mb-4">
+          {{ content_block.settings.content_heading }}
+        </h2>
+
+        <p class="mb-4">
+          {{ content_block.settings.content_text }}
+        </p>
+
+        <a href="{{ content_block.settings.content_link }}" class="btn btn-primary">
+          {{ content_block.settings.content_link_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Callout",
+  "tag": "section",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image",
+      "label": "Collection image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "content_heading",
+          "label": "Content heading"
+        },
+        {
+          "type": "richtext",
+          "id": "content_text",
+          "label": "Content text"
+        },
+        {
+          "type": "url",
+          "id": "content_link",
+          "label": "Content CTA"
+        },
+        {
+          "type": "text",
+          "id": "content_link_text",
+          "label": "Content CTA text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Callout"
+    }
+  ]
+}
+{% endschema %}
