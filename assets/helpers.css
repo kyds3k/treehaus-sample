@@ -1,3 +1,7 @@
+body {
+  padding-bottom: 100px; /* Just to give a little space at the bottom */
+}
+
 /* Hides element on screens 1024px and up */
 .hide-desktop {
   display: block;
@@ -18,4 +22,41 @@
   .hide-mobile {
     display: block;
   }
+}
+
+/* Button class for exercise */
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 40px;
+  min-width: 125px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 5px;
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    height: 50px;
+    min-width: 150px;
+    padding: 0 36px;
+    width: fit-content;
+  }
+}
+
+/* CTA class for exercise */
+
+.cta {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #141414;
 }

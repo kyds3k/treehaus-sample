@@ -1,14 +1,12 @@
+{{ 'section-features.css' | asset_url | stylesheet_tag }}
+{{ 'helpers.css' | asset_url | stylesheet_tag }}
+
 <section class="features">
   <div class="features__container">
     {% for block in section.blocks %}
       <div class="features__block">
-        <h2>{{ block.settings.content_heading }}</h2>
-        <div>{{ block.settings.content_text }}</div>
-        {% if block.settings.content_link %}
-          <a href="{{ block.settings.content_link }}">
-            {{ block.settings.content_link_text }}
-          </a>
-        {% endif %}
+        {% render 'icons', icon_name: block.settings.feature_icon %}
+        {{ block.settings.feature_text }}
       </div>
     {% endfor %}
   </div>

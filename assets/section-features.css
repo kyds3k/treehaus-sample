@@ -1,0 +1,33 @@
+.features__container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  padding: 45px 90px;
+  background: linear-gradient(225deg, #fafbfb 0%, #f7f8f8 100%);
+}
+
+.features__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  color: #141414;
+}
+
+@media (min-width: 1024px) {
+  .features__container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .features__block {
+    width: 185px;
+    font-size: 20px;
+  }
+}

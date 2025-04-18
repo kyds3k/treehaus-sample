@@ -9,7 +9,11 @@
 {% endcomment %}
 
 {%- liquid
-  assign icon_class = 'icon icon--' | append: icon_name | append: ' ' | append: icon_class
+  if icon_name
+    assign icon_class = 'icon icon--' | append: icon_name
+  else
+    assign icon_class = 'icon'
+  endif
 -%}
 
 {%- case icon_name -%}

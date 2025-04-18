@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 18px 23px 21px 23px;
+  padding: 18px 23px 21px;
 }
 
 .site-header .header__logo {
@@ -16,11 +16,12 @@
   display: none;
 }
 
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1180px) {
+  /* Breaking a little early to avoid smush*/
   .site-header {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 42px 52px 52px 52px;
+    padding: 42px 52px 52px;
   }
 
   .site-header .header__logo {
@@ -38,26 +39,26 @@
 
   .site-header__nav-desktop ul {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    list-style: none;
     gap: 48px;
     margin: 0;
     padding: 0;
+    list-style: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
 
-  .site-header__nav-desktop ul li {
+  .site-header__nav-desktop li {
     text-transform: uppercase;
   }
 
-  .site-header__nav-desktop ul li a {
+  .site-header__nav-desktop a {
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
     color: #4a4a4a;
   }
 
-  .site-header__nav-desktop ul li a.sale {
+  .site-header__nav-desktop a.sale {
     color: #ff2500;
   }
 
@@ -67,10 +68,10 @@
   }
 
   .site-header__search input {
+    width: 193px;
     padding: 10px 35px 10px 19px;
     border: 1px solid #c4c4c4;
     border-radius: 20px;
-    width: 193px;
   }
 
   .site-header__search .icon--search {
@@ -85,6 +86,24 @@
     justify-content: space-between;
     align-items: center;
     height: 35px;
+    position: relative;
+  }
+
+  .site-header__cart-count {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background-color: #005bc4;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    z-index: 2;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .site-header__account {
@@ -96,9 +115,9 @@
   }
 
   .site-header__account-heading {
-    font-size: 15px;
     margin: 0;
     padding: 0;
+    font-size: 15px;
     color: #4a4a4a;
   }
 

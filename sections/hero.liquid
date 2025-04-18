@@ -7,15 +7,15 @@
       src="{{ section.settings.image_desktop | image_url: width: 1440 }}"
       alt="{{ section.settings.heading }}"
       class="hero__image hero__image-desktop hide-mobile"
-      width="1440"
-      height="900"
+      width="{{ section.settings.image_desktop.width }}"
+      height="{{ section.settings.image_desktop.height }}"
     >
     <img
       src="{{ section.settings.image_mobile | image_url: width: 768 }}"
       alt="{{ section.settings.heading }}"
       class="hero__image hero__image-mobile hide-desktop"
-      width="768"
-      height="900"
+      width="{{ section.settings.image_mobile.width }}"
+      height=" {{ section.settings.image_mobile.height }}"
     >
     <div class="hero__content">
       {% if section.settings.eyebrow %}

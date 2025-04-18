@@ -1,29 +1,41 @@
-<section class="coll-callout">
-  <div class="coll-callout__container">
-    {% if section.settings.collection_image %}
-      <img
-        src="{{ section.settings.collection_image | img_url: 'large' }}"
-        alt="Collection image"
-        class="w-full h-auto coll-callout__image"
-      >
-    {% endif %}
-    {% if content_block %}
-      <div class="coll-callout__content">
+{{ 'section-collection-callout.css' | asset_url | stylesheet_tag }}
+{{ 'helpers.css' | asset_url | stylesheet_tag }}
+
+<section class="collection-callout">
+  <div class="collection-callout__container">
+    <img
+      src="{{ section.settings.collection_image_desktop | image_url: width: 1440 }}"
+      alt="Collection image"
+      class="collection-callout__image hide-mobile"
+      width="{{ section.settings.collection_image_desktop.width }}"
+      height="{{ section.settings.collection_image_desktop.height }}"
+    >
+
+    <img
+      src="{{ section.settings.collection_image_mobile | image_url: width: 768 }}"
+      alt="Collection image"
+      class="collection-callout__image hide-desktop"
+      width="{{ section.settings.collection_image_mobile.width }}"
+      height="{{ section.settings.collection_image_mobile.height }}"
+    >
+
+    <div class="collection-callout__wrapper">
+      <div class="collection-callout__content">
         {% assign content_block = section.blocks.first %}
 
-        <h2 class="text-2xl font-bold mb-4">
+        <h2 class="collection-callout__heading">
           {{ content_block.settings.content_heading }}
         </h2>
 
-        <p class="mb-4">
+        <div class="collection-callout__text">
           {{ content_block.settings.content_text }}
-        </p>
+        </div>
 
         <a href="{{ content_block.settings.content_link }}" class="btn btn-primary">
           {{ content_block.settings.content_link_text }}
         </a>
       </div>
-    {% endif %}
+    </div>
   </div>
 </section>
 
@@ -34,14 +46,14 @@
   "max_blocks": 1,
   "settings": [
     {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
+      "type": "image_picker",
+      "id": "collection_image_desktop",
+      "label": "Collection image - Desktop"
     },
     {
       "type": "image_picker",
-      "id": "collection_image",
-      "label": "Collection image"
+      "id": "collection_image_mobile",
+      "label": "Collection image - Mobile"
     }
   ],
   "blocks": [

@@ -1,12 +1,43 @@
+{{ 'section-collection-blocks.css' | asset_url | stylesheet_tag }}
+{{ 'helpers.css' | asset_url | stylesheet_tag }}
+
 <section class="collection-blocks">
   <div class="collection-blocks__container">
     {% for block in section.blocks %}
       <div class="collection-blocks__item">
         <img
-          src="{{ block.settings.block_image | img_url: 'medium' }}"
+          src="{{ block.settings.block_image_desktop | image_url: width: 650 }}"
           alt="{{ block.settings.content_heading }}"
-          class="collection-blocks__image"
+          class="collection-blocks__image hide-mobile"
+          width="{{ block.settings.block_image_desktop.width }}"
+          height="{{ block.settings.block_image_desktop.height }}"
         >
+        <img
+          src="{{ block.settings.block_image_mobile | image_url: width: 320 }}"
+          alt="{{ block.settings.content_heading }}"
+          class="collection-blocks__image hide-desktop"
+          width="{{ block.settings.block_image_mobile.width }}"
+          height="{{ block.settings.block_image_mobile.height }}"
+        >
+        <div class="collection-blocks__item-content">
+          <h3 class="collection-blocks__heading">
+            {{ block.settings.content_heading }}
+          </h3>
+          <div class="collection-blocks__text">
+            {{ block.settings.content_text }}
+          </div>
+          <div class="collection-blocks__ctas">
+            {% for i in (1..4) %}
+              {% assign cta_text = 'cta_text_' | append: i %}
+              {% assign cta_link = 'cta_link_' | append: i %}
+              {% if block.settings[cta_text] and block.settings[cta_link] %}
+                <a href="{{ block.settings[cta_link] }}" class="cta collection-blocks__cta">
+                  {{ block.settings[cta_text] }}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
       </div>
     {% endfor %}
   </div>
@@ -50,7 +81,7 @@
 
         {
           "type": "text",
-          "id": "cta_text",
+          "id": "cta_text_1",
           "label": "Content CTA 1 text"
         },
         {
