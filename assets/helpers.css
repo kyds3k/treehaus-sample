@@ -1,0 +1,21 @@
+/* Hides element on screens 1024px and up */
+.hide-desktop {
+  display: block;
+}
+
+@media screen and (min-width: 1024px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Hides element on screens smaller than 1024px */
+.hide-mobile {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .hide-mobile {
+    display: block;
+  }
+}

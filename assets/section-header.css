@@ -11,7 +11,8 @@
 }
 
 .site-header__nav-desktop,
-.site-header__search {
+.site-header__search,
+.site-header__account {
   display: none;
 }
 
